@@ -9,9 +9,9 @@ html {
   background-color: #182931;
 }
 .wrapper {
-  width: 700px;
+  width: 800px;
   margin-bottom: 50px;
-  padding: 3%;
+  padding: 0%;
   box-shadow: 0 15px 20px -20px rgba(0, 0, 0, 1);
   display: flex;
   justify-content: center;
@@ -32,7 +32,7 @@ html {
 */
 
 #modelContainer {
-  background-color: #17323b;
+  background-color: #214855;
   border-radius: 5%;
   width: auto;
   height: auto;

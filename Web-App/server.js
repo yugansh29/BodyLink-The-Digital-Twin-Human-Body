@@ -8,7 +8,7 @@ app.use(express.static("public"));
 app.use(express.json());
 
 const graphData = {
-  sleep: [10, 90],
+  sleep: [20, 80],
   heartRate: [0, 0, 0, 0, 0],
   oxygen: [0, 0, 0, 0, 0],
   stress: [10, 90],

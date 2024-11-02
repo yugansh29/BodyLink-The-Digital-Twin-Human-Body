@@ -106,10 +106,10 @@ async function stressChartData() {
     const response = await fetch("http://localhost:3000/get-graph-data");
     const graphData = await response.json();
     return {
-      labels: ["Bad Sleep", "Good Sleep"],
+      labels: ["Anxious", "Relaxed"],
       datasets: [
         {
-          label: "Sleep Quality",
+          label: "Stress Level",
           data: graphData.stress,
           backgroundColor: ["rgb(75, 192, 192, 0.2)", "rgb(75, 192, 192)"],
         },
@@ -118,10 +118,10 @@ async function stressChartData() {
   } catch (error) {
     console.error("Failed to fetch sleep data:", error);
     return {
-      labels: ["Bad Sleep", "Good Sleep"],
+      labels: ["Anxious", "Relaxed"],
       datasets: [
         {
-          label: "Sleep Quality",
+          label: "Stress Level",
           data: [0, 0],
           backgroundColor: ["rgb(75, 192, 192, 0.2)", "rgb(75, 192, 192)"],
         },
@@ -134,22 +134,22 @@ async function hydrationChartData() {
     const response = await fetch("http://localhost:3000/get-graph-data");
     const graphData = await response.json();
     return {
-      labels: ["Bad Sleep", "Good Sleep"],
+      labels: ["Low Hydration", "Healthy Hydration"],
       datasets: [
         {
-          label: "Sleep Quality",
+          label: "Hydration Level",
           data: graphData.hydration,
           backgroundColor: ["rgb(75, 192, 192, 0.2)", "rgb(75, 192, 192)"],
         },
       ],
     };
   } catch (error) {
-    console.error("Failed to fetch sleep data:", error);
+    console.error("Failed to fetch Hydration data:", error);
     return {
-      labels: ["Bad Sleep", "Good Sleep"],
+      labels: ["Low Hydration", "Healthy Hydration"],
       datasets: [
         {
-          label: "Sleep Quality",
+          label: "Hydration Level",
           data: [0, 0],
           backgroundColor: ["rgb(75, 192, 192, 0.2)", "rgb(75, 192, 192)"],
         },
@@ -177,7 +177,7 @@ function tempChartData() {
       {
         label: "Body Temperature",
         data: [65, 59, 80, 81],
-        backgroundColor: "rgba(255, 99, 132)",
+        backgroundColor: "rgb(255, 99, 132)",
       },
     ],
   };
