@@ -8,12 +8,13 @@ app.use(express.static("public"));
 app.use(express.json());
 
 const graphData = {
-  sleep: [20, 80],
+  sleep: [1, 1],
   heartRate: [0, 0, 0, 0, 0],
   oxygen: [0, 0, 0, 0, 0],
   stress: [10, 90],
   hydration: [10, 90],
   temperature: [0, 0, 0, 0, 0],
+  calories: [0, 0, 0, 0, 0],
   ecg: [0, 0, 0, 0, 0],
 };
 
@@ -22,6 +23,46 @@ app.post("/update-sleep", (req, res) => {
   res.status(200).send({
     message: "Sleep data updated successfully!",
     data: graphData.sleep,
+  });
+});
+
+app.post("/update-calories", (req, res) => {
+  graphData.calories = req.body.data;
+  res.status(200).send({
+    message: "Calories data updated successfully!",
+    data: graphData.calories,
+  });
+});
+
+app.post("/update-heart-rate", (req, res) => {
+  graphData.heartRate = req.body.data;
+  res.status(200).send({
+    message: "Heart rate data updated successfully!",
+    data: graphData.heartRate,
+  });
+});
+
+app.post("/update-oxygen", (req, res) => {
+  graphData.oxygen = req.body.data;
+  res.status(200).send({
+    message: "Oxygen data updated successfully!",
+    data: graphData.oxygen,
+  });
+});
+
+app.post("/update-temperature", (req, res) => {
+  graphData.temperature = req.body.data;
+  res.status(200).send({
+    message: "Temperature data updated successfully!",
+    data: graphData.temperature,
+  });
+});
+
+app.post("/update-ecg", (req, res) => {
+  graphData.ecg = req.body.data;
+  res.status(200).send({
+    message: "ECG data updated successfully!",
+    data: graphData.ecg,
   });
 });
 

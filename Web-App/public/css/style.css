@@ -1,3 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap");
+:root {
+  --dark-background: #182931;
+  --light-background: #17323b;
+}
 body,
 html {
   height: 100%;
@@ -6,45 +11,50 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #182931;
+  background-color: var(--dark-background);
 }
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
 .wrapper {
-  width: 800px;
+  width: 700px;
   margin-bottom: 50px;
-  padding: 0%;
+  padding: 3%;
   box-shadow: 0 15px 20px -20px rgba(0, 0, 0, 1);
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border-bottom: 2px solid rgba(0, 0, 0, 1); */
-  /* position: relative; */
+  transition: width 0.3s ease;
 }
 
-/* .wrapper::after {
-  content: "";
-  position: absolute;
-  left: 10%;
-  right: 10%;
-  bottom: 0;
-  height: 20px;
-  box-shadow: 0px 2px 4px -4px rgba(0, 0, 0, 0.8);
-} 
-*/
+.wrapper:hover {
+  width: 900px;
+}
 
-#modelContainer {
-  background-color: #214855;
+#modelContainer,
+#modelContainer2 {
+  background-color: var(--light-background);
   border-radius: 5%;
   width: auto;
   height: auto;
-  border: 1px solid #182931;
+  border: 1px solid var(--dark-background);
   box-shadow: -10px 0 10px -5px rgba(0, 0, 0, 0.5),
     10px 0 10px -5px rgba(0, 0, 0, 0.5), 0 10px 20px rgba(0, 0, 0, 0.5);
-
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(4, 1fr);
   gap: 15px;
   padding: 7%;
+}
+
+#modelContainer2 {
+  grid-template-columns: repeat(1, 2fr) !important;
+  grid-template-rows: repeat(1, 2fr) !important;
 }
 .grid-item {
   background-color: transparent;
@@ -57,6 +67,7 @@ html {
   grid-column: 2;
   grid-row: 1 / -1;
 }
+
 .grid-item canvas {
   width: 100%;
   height: auto;
@@ -67,3 +78,44 @@ html {
 .grid-item img {
   height: 100%;
 }
+
+.header h1 {
+  text-align: center;
+  font-family: "Sour Gummy", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+/* .header {
+
+} */
+.content {
+  color: white;
+  text-align: center;
+  font-family: "Sour Gummy", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+/* @media (max-width: 1600px) {
+  .wrapper {
+    width: 560px;
+  }
+
+  .wrapper:hover {
+    width: 720px;
+  }
+
+  #modelContainer,
+  #modelContainer2 {
+    padding: 5%;
+  }
+
+  .container {
+    gap: 30px;
+  }
+} */
