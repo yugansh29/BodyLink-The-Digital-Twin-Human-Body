@@ -9,7 +9,7 @@ app.use(express.json());
 
 const graphData = {
   sleep: [1, 1],
-  heartRate: [0, 0, 0, 0, 0],
+  heartRate: [],
   oxygen: [0, 0, 0, 0, 0],
   stress: [10, 90],
   hydration: [10, 90],
@@ -35,7 +35,11 @@ app.post("/update-calories", (req, res) => {
 });
 
 app.post("/update-heart-rate", (req, res) => {
-  graphData.heartRate = req.body.data;
+  // graphData.heartRate = req.body.data;
+  if (graphData.heartRate.length >= 5) {
+    graphData.heartRate.shift();
+  }
+  graphData.heartRate.push(req.body.data);
   res.status(200).send({
     message: "Heart rate data updated successfully!",
     data: graphData.heartRate,

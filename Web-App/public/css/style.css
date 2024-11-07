@@ -53,8 +53,11 @@ html {
 }
 
 #modelContainer2 {
-  grid-template-columns: repeat(1, 2fr) !important;
-  grid-template-rows: repeat(1, 2fr) !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  grid-template-rows: auto 1fr !important;
+  grid-template-areas:
+    "header header header"
+    "content1 content2 content3";
 }
 .grid-item {
   background-color: transparent;
@@ -80,6 +83,7 @@ html {
 }
 
 .header h1 {
+  color: rgb(75, 192, 192);
   text-align: center;
   font-family: "Sour Gummy", sans-serif;
   font-optical-sizing: auto;
@@ -88,9 +92,9 @@ html {
   font-variation-settings: "wdth" 100;
 }
 
-/* .header {
-
-} */
+.header {
+  grid-area: header;
+}
 .content {
   color: white;
   text-align: center;
@@ -99,6 +103,19 @@ html {
   font-weight: 300;
   font-style: normal;
   font-variation-settings: "wdth" 100;
+}
+.insights {
+  grid-area: content1;
+}
+.suggestions {
+  grid-area: content2;
+}
+.warnings {
+  grid-area: content3;
+}
+
+.content p {
+  font-size: 0.78rem;
 }
 
 /* @media (max-width: 1600px) {
