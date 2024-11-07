@@ -9,7 +9,10 @@ To start the web application:
 1. Navigate into the `Web-App` directory:
    ```bash
    cd Web-App
-2. Run
+2. Install Dependencies
+   ```bash
+   npm install
+4. run
    ```bash
    node server.js
    
