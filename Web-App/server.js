@@ -10,16 +10,19 @@ app.use(express.json());
 const graphData = {
   sleep: [1, 1],
   heartRate: [],
-  oxygen: [0, 0, 0, 0, 0],
+  oxygen: [],
   stress: [10, 90],
   hydration: [10, 90],
-  temperature: [0, 0, 0, 0, 0],
-  calories: [0, 0, 0, 0, 0],
-  ecg: [0, 0, 0, 0, 0],
+  temperature: [],
+  calories: [],
+  ecg: [],
 };
 
 app.post("/update-sleep", (req, res) => {
-  graphData.sleep = req.body.data;
+  if (graphData.sleep.length >= 2) {
+    graphData.sleep.shift();
+  }
+  graphData.sleep.push(req.body.data);
   res.status(200).send({
     message: "Sleep data updated successfully!",
     data: graphData.sleep,
@@ -27,7 +30,10 @@ app.post("/update-sleep", (req, res) => {
 });
 
 app.post("/update-calories", (req, res) => {
-  graphData.calories = req.body.data;
+  if (graphData.calories.length >= 5) {
+    graphData.calories.shift();
+  }
+  graphData.calories.push(req.body.data);
   res.status(200).send({
     message: "Calories data updated successfully!",
     data: graphData.calories,
@@ -35,7 +41,6 @@ app.post("/update-calories", (req, res) => {
 });
 
 app.post("/update-heart-rate", (req, res) => {
-  // graphData.heartRate = req.body.data;
   if (graphData.heartRate.length >= 5) {
     graphData.heartRate.shift();
   }
@@ -47,7 +52,10 @@ app.post("/update-heart-rate", (req, res) => {
 });
 
 app.post("/update-oxygen", (req, res) => {
-  graphData.oxygen = req.body.data;
+  if (graphData.oxygen.length >= 5) {
+    graphData.oxygen.shift();
+  }
+  graphData.oxygen.push(req.body.data);
   res.status(200).send({
     message: "Oxygen data updated successfully!",
     data: graphData.oxygen,
@@ -55,7 +63,10 @@ app.post("/update-oxygen", (req, res) => {
 });
 
 app.post("/update-temperature", (req, res) => {
-  graphData.temperature = req.body.data;
+  if (graphData.temperature.length >= 5) {
+    graphData.temperature.shift();
+  }
+  graphData.temperature.push(req.body.data);
   res.status(200).send({
     message: "Temperature data updated successfully!",
     data: graphData.temperature,
@@ -63,7 +74,10 @@ app.post("/update-temperature", (req, res) => {
 });
 
 app.post("/update-ecg", (req, res) => {
-  graphData.ecg = req.body.data;
+  if (graphData.ecg.length >= 5) {
+    graphData.ecg.shift();
+  }
+  graphData.ecg.push(req.body.data);
   res.status(200).send({
     message: "ECG data updated successfully!",
     data: graphData.ecg,
@@ -71,7 +85,10 @@ app.post("/update-ecg", (req, res) => {
 });
 
 app.post("/update-stress", (req, res) => {
-  graphData.stress = req.body.data;
+  if (graphData.stress.length >= 2) {
+    graphData.stress.shift();
+  }
+  graphData.stress.push(req.body.data);
   res.status(200).send({
     message: "Stress data updated successfully!",
     data: graphData.stress,
@@ -79,7 +96,10 @@ app.post("/update-stress", (req, res) => {
 });
 
 app.post("/update-hydration", (req, res) => {
-  graphData.hydration = req.body.data;
+  if (graphData.hydration.length >= 2) {
+    graphData.hydration.shift();
+  }
+  graphData.hydration.push(req.body.data);
   res.status(200).send({
     message: "Hydration data updated successfully!",
     data: graphData.hydration,
