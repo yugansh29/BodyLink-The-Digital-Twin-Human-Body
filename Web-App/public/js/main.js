@@ -1,16 +1,40 @@
+if (document.body.clientWidth < 1920) {
+  document.body.style.transform = "scale(0.8)";
+  const header = document.querySelector(".header img");
+  const toggle = document.querySelector(".toggle-button");
+  const sidebar = document.querySelector(".sidebar");
+  header.style.top = "-7%";
+  header.style.right = "-7%";
+  toggle.style.top = "-7%";
+  toggle.style.left = "-7%";
+  sidebar.style.top = "-5%";
+  sidebar.style.left = "-20%";
+}
 document.addEventListener("DOMContentLoaded", function () {
   const toggleButton = document.querySelector(".toggle-button");
   const sidebar = document.querySelector(".sidebar");
   const wrapper = document.querySelector(".wrapper");
   toggleButton.addEventListener("click", function () {
-    if (sidebar.style.left === "0vw") {
-      sidebar.style.left = "-5vw";
-      wrapper.style.marginLeft = "0";
-      wrapper.style.transition = "margin-left 0.5s ease, width 0.3s ease";
+    if (document.body.clientWidth < 1920) {
+      if (sidebar.style.left === "-7.6%") {
+        sidebar.style.left = "-20%";
+        wrapper.style.marginLeft = "0";
+        wrapper.style.transition = "margin-left 0.5s ease, width 0.3s ease";
+      } else {
+        sidebar.style.left = "-7.6%";
+        wrapper.style.marginLeft = "7.6%";
+        wrapper.style.transition = "margin-left 0.5s ease, width 0.3s ease";
+      }
     } else {
-      sidebar.style.left = "0vw";
-      wrapper.style.marginLeft = "5vw";
-      wrapper.style.transition = "margin-left 0.5s ease, width 0.3s ease";
+      if (sidebar.style.left === "0vw") {
+        sidebar.style.left = "-5vw";
+        wrapper.style.marginLeft = "0";
+        wrapper.style.transition = "margin-left 0.5s ease, width 0.3s ease";
+      } else {
+        sidebar.style.left = "0vw";
+        wrapper.style.marginLeft = "5vw";
+        wrapper.style.transition = "margin-left 0.5s ease, width 0.3s ease";
+      }
     }
   });
 });
